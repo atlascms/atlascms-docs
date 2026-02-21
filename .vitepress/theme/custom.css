@@ -1,0 +1,85 @@
+/**
+ * Atlas CMS brand color: #9084ff
+ */
+:root {
+  --vp-c-brand-1: #9084ff;
+  --vp-c-brand-2: #a79bff;
+  --vp-c-brand-3: #7a6eeb;
+  --vp-c-brand-soft: rgba(144, 132, 255, 0.14);
+}
+
+.dark {
+  --vp-c-brand-1: #a79bff;
+  --vp-c-brand-2: #b8aeff;
+  --vp-c-brand-3: #9084ff;
+  --vp-c-brand-soft: rgba(144, 132, 255, 0.2);
+}
+
+/* Fields container - single wrapper with border */
+.vp-doc .fields-container {
+  margin: 1.5rem 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.vp-doc .fields-container details {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc .fields-container details:last-child {
+  border-bottom: none;
+}
+
+.vp-doc .fields-container details summary {
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  background: transparent;
+  transition: color 0.2s;
+}
+
+.vp-doc .fields-container details summary::-webkit-details-marker {
+  display: none;
+}
+
+.vp-doc .fields-container details summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 0.7em;
+  color: var(--vp-c-brand-1);
+  transition: transform 0.25s;
+}
+
+.vp-doc .fields-container details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.vp-doc .fields-container details summary:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.vp-doc .fields-container details > *:not(summary) {
+  margin: 0 1rem 1rem;
+}
+
+.vp-doc .fields-container details > *:not(summary):first-of-type {
+  margin-top: 1rem;
+}
+
+.vp-doc .fields-container details[open] .field-content {
+  background: rgba(0, 0, 0, 0.025);
+  margin: 0;
+  padding: 1.25rem;
+  border: none;
+}
+
+.dark .vp-doc .fields-container details[open] .field-content {
+  background: rgba(255, 255, 255, 0.04);
+}
+
