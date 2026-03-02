@@ -49,7 +49,7 @@ GET /{project}/media-library/folders
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/media-library/folders?search=value&searchSubdirectory=value&folder=value&page=value&size=value&sort=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/media-library/folders" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -267,9 +267,6 @@ GET /{project}/media-library/media
       "codec": "string",
       "exif": {
         "key": "value"
-      },
-      "metadata": {
-        "key": "value"
       }
     }
   ],
@@ -287,7 +284,7 @@ GET /{project}/media-library/media
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/media-library/media?folder=value&filter=value&search=value&searchSubdirectory=value&page=value&size=value&sort=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/media-library/media" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -344,9 +341,6 @@ GET /{project}/media-library/media/{id}
   "fps": 0,
   "codec": "string",
   "exif": {
-    "key": "value"
-  },
-  "metadata": {
     "key": "value"
   }
 }
@@ -454,49 +448,6 @@ curl -X POST "https://my-project.atlascms.io/{project}/media-library/media/uploa
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{}'
-```
-
----
-
-## Upload File (base64)
-
-```
-POST /{project}/media-library/media/upload/payload
-```
-
-### Path Parameters
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `project` | string | Yes | - |
-
-### Request Body
-
-```json
-{
-  "folder": "string",
-  "fileData": "string",
-  "fileName": "string",
-  "id": "string"
-}
-```
-
-### Response (200 OK)
-
-```json
-{
-  "result": "string"
-}
-```
-
-### cURL Example
-
-```bash
-curl -X POST "https://my-project.atlascms.io/{project}/media-library/media/upload/payload" \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json" \
-  -d '{"folder":"string","fileData":"string","fileName":"string","id":"string"}'
 ```
 
 ---

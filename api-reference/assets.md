@@ -22,7 +22,7 @@ GET /assets/{project}/{id}/{name}
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/assets/{project}/item-id/value" \
+curl -X GET "https://my-project.atlascms.io/assets/{project}/item-id/filename" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -47,7 +47,7 @@ GET /assets/{project}/docs/{id}/{name}
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/assets/{project}/docs/item-id/value" \
+curl -X GET "https://my-project.atlascms.io/assets/{project}/docs/item-id/filename" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -72,7 +72,7 @@ GET /assets/{project}/video/{id}/{name}
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/assets/{project}/video/item-id/value" \
+curl -X GET "https://my-project.atlascms.io/assets/{project}/video/item-id/filename" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"

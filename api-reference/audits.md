@@ -30,12 +30,15 @@ GET /audits
   "data": [
     {
       "id": "string",
+      "projectId": "string",
       "timestamp": "2024-01-15T12:00:00Z",
+      "createdBy": "string",
       "type": "information",
       "entityId": "string",
       "entityType": "string",
       "event": "string",
       "message": "string",
+      "result": "string",
       "data": {
         "key": "value"
       }
@@ -55,7 +58,7 @@ GET /audits
 ### cURL Example
 
 ```bash
-curl -X GET "https://{project}.atlascms.io/audits?entityId=value&entityType=value&page=value&size=value&sort=value" \
+curl -X GET "https://{project}.atlascms.io/audits?entityId=value&entityType=value" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -92,12 +95,15 @@ GET /{project}/audits
   "data": [
     {
       "id": "string",
+      "projectId": "string",
       "timestamp": "2024-01-15T12:00:00Z",
+      "createdBy": "string",
       "type": "information",
       "entityId": "string",
       "entityType": "string",
       "event": "string",
       "message": "string",
+      "result": "string",
       "data": {
         "key": "value"
       }
@@ -117,7 +123,7 @@ GET /{project}/audits
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/audits?entityId=value&entityType=value&page=value&size=value&sort=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/audits?entityId=value&entityType=value" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"

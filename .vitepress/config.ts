@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Atlas CMS',
   description: 'Documentation for Atlas CMS Headless CMS',
+  cleanUrls: true,
   themeConfig: {
     logo: { src: '/logo-placeholder.svg', alt: 'Atlas CMS' },
     nav: [
@@ -24,7 +25,7 @@ export default defineConfig({
       },
       {
         text: 'Admin UI',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Create a project', link: '/admin-ui/create-project' },
           { text: 'Modeling Data', link: '/admin-ui/modeling-data' },
@@ -36,7 +37,7 @@ export default defineConfig({
       },
       {
         text: 'API Overview',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Api Basics', link: '/api-overview/api-basics' },
           { text: 'Filtering', link: '/api-overview/filtering' },
@@ -48,30 +49,24 @@ export default defineConfig({
       },
       {
         text: 'API Reference',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Overview', link: '/api-reference/' },
-          { text: 'Accounts', link: '/api-reference/accounts' },
-          { text: 'API Tokens', link: '/api-reference/api-tokens' },
           { text: 'Contents', link: '/api-reference/contents' },
           { text: 'Models', link: '/api-reference/models' },
           { text: 'Media Library', link: '/api-reference/media-library' },
           { text: 'Assets', link: '/api-reference/assets' },
-          { text: 'Projects', link: '/api-reference/projects' },
-          { text: 'Project Memberships', link: '/api-reference/project-memberships' },
           { text: 'Users', link: '/api-reference/users' },
           { text: 'Roles', link: '/api-reference/roles' },
-          { text: 'Webhooks', link: '/api-reference/webhooks' },
           { text: 'Audits', link: '/api-reference/audits' },
-          { text: 'Configurations', link: '/api-reference/configurations' },
-          { text: 'Reports', link: '/api-reference/reports' },
-          { text: 'Subscriptions', link: '/api-reference/subscriptions' },
-          { text: 'Temp', link: '/api-reference/temp' },
+          { text: 'Admin - Project', link: '/api-reference/admin-project' },
+          { text: 'Admin - API Keys', link: '/api-reference/admin-api-keys' },
+          { text: 'Admin - Webhooks', link: '/api-reference/admin-webhooks' },
         ]
       },
       {
         text: 'Client SDK',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Overview', link: '/client-sdk/' },
           { text: 'Javascript', link: '/client-sdk/javascript' },

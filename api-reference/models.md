@@ -75,7 +75,7 @@ GET /{project}/content-types/models
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/content-types/models?system=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/content-types/models" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -263,7 +263,6 @@ PUT /{project}/content-types/models/{id}
 {
   "name": "string",
   "description": "string",
-  "isSingle": true,
   "localizable": true,
   "enableStageMode": true,
   "attributes": [
@@ -316,7 +315,7 @@ curl -X PUT "https://my-project.atlascms.io/{project}/content-types/models/item-
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
-  -d '{"name":"string","description":"string","isSingle":true,"localizable":true,"enableStageMode":true,"attributes":[{"key":"string","label":"string","name":"string","hint":"string","order":0,"type":"string","localizable":true,"hidden":true,"readOnly":true,"required":true}],"properties":{"icon":"string","fieldsets":[{"key":"string","name":"string","description":"string","collapsed":true,"fields":[]}],"links":[{"key":"string","value":"string"}]}}'
+  -d '{"name":"string","description":"string","localizable":true,"enableStageMode":true,"attributes":[{"key":"string","label":"string","name":"string","hint":"string","order":0,"type":"string","localizable":true,"hidden":true,"readOnly":true,"required":true}],"properties":{"icon":"string","fieldsets":[{"key":"string","name":"string","description":"string","collapsed":true,"fields":[]}],"links":[{"key":"string","value":"string"}]}}'
 ```
 
 ---
@@ -363,6 +362,7 @@ GET /{project}/content-types/components
 [
   {
     "id": "string",
+    "projectId": "string",
     "name": "string",
     "key": "string",
     "description": "string",
@@ -474,6 +474,7 @@ GET /{project}/content-types/components/{id}
 ```json
 {
   "id": "string",
+  "projectId": "string",
   "name": "string",
   "key": "string",
   "description": "string",

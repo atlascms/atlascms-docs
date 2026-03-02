@@ -25,10 +25,12 @@ npm run docs:preview
 
 ## Regenerating API Reference
 
-To regenerate the API Reference from a Swagger/OpenAPI file:
+To regenerate the API Reference from the Swagger/OpenAPI file:
 
-1. Place your `swagger.json` at `/Users/simonebelia/Desktop/swagger.json` (or update the path in `scripts/generate-api-ref.mjs`)
+1. Place your `swagger.json` in the project root (or update `SWAGGER_PATH` in `scripts/generate-api-ref.mjs`)
 2. Run: `node scripts/generate-api-ref.mjs`
+
+The script filters APIs by tag: Contents, Models, Media Library, Assets, Users, Roles, Audits, and Admin (split into Project, Members, Roles, API Keys, Webhooks).
 
 ## Project Structure
 

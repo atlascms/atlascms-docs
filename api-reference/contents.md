@@ -26,7 +26,7 @@ GET /{project}/contents/{type}
 | `search` | string | No | - |
 | `locale` | string | No | - |
 | `resolve` | string | No | Accept: media, mediagallery, references |
-| `stage` | string | No | - |
+| `status` | string | No | - |
 | `page` | integer | No | - |
 | `size` | integer | No | - |
 | `sort` | string | No | - |
@@ -45,7 +45,7 @@ GET /{project}/contents/{type}
       "modifiedAt": "2024-01-15T12:00:00Z",
       "modifiedBy": "string",
       "hash": "string",
-      "stage": "unpublished",
+      "status": "unpublished",
       "attributes": {
         "key": "value"
       },
@@ -66,7 +66,7 @@ GET /{project}/contents/{type}
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/contents/posts?filter=value&search=value&locale=value&resolve=value&stage=value&page=value&size=value&sort=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/contents/posts" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -137,7 +137,7 @@ GET /{project}/contents/{type}/single
 |------|------|----------|-------------|
 | `locale` | string | No | - |
 | `resolve` | string | No | Accept: media, mediagallery, references |
-| `stage` | string | No | - |
+| `status` | string | No | - |
 | `page` | integer | No | - |
 | `size` | integer | No | - |
 | `sort` | string | No | - |
@@ -154,7 +154,7 @@ GET /{project}/contents/{type}/single
   "modifiedAt": "2024-01-15T12:00:00Z",
   "modifiedBy": "string",
   "hash": "string",
-  "stage": "unpublished",
+  "status": "unpublished",
   "attributes": {
     "key": "value"
   },
@@ -170,7 +170,7 @@ GET /{project}/contents/{type}/single
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/contents/posts/single?locale=value&resolve=value&stage=value&page=value&size=value&sort=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/contents/posts/single" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -198,7 +198,7 @@ GET /{project}/contents/{type}/count
 | `filter` | string | No | Querystring parameters in the form of <b>?filter[field][operator]=values&filter[field][operator]=values</b> |
 | `search` | string | No | - |
 | `locale` | string | No | - |
-| `stage` | string | No | - |
+| `status` | string | No | - |
 
 ### Response (200 OK)
 
@@ -211,7 +211,7 @@ GET /{project}/contents/{type}/count
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/contents/posts/count?filter=value&search=value&locale=value&stage=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/contents/posts/count" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -251,7 +251,7 @@ GET /{project}/contents/{type}/{id}
   "modifiedAt": "2024-01-15T12:00:00Z",
   "modifiedBy": "string",
   "hash": "string",
-  "stage": "unpublished",
+  "status": "unpublished",
   "attributes": {
     "key": "value"
   },
@@ -267,7 +267,7 @@ GET /{project}/contents/{type}/{id}
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/contents/posts/item-id?resolve=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/contents/posts/item-id" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -334,7 +334,7 @@ DELETE /{project}/contents/{type}/{id}
 ### cURL Example
 
 ```bash
-curl -X DELETE "https://my-project.atlascms.io/{project}/contents/posts/item-id?locales=value" \
+curl -X DELETE "https://my-project.atlascms.io/{project}/contents/posts/item-id" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -342,10 +342,10 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/contents/posts/item-id?
 
 ---
 
-## Publish Content
+## Change the status of a content
 
 ```
-POST /{project}/contents/{type}/{id}/publish
+POST /{project}/contents/{type}/{id}/status
 ```
 
 ### Path Parameters
@@ -356,38 +356,22 @@ POST /{project}/contents/{type}/{id}/publish
 | `type` | string | Yes | - |
 | `project` | string | Yes | - |
 
-### cURL Example
+### Request Body
 
-```bash
-curl -X POST "https://my-project.atlascms.io/{project}/contents/posts/item-id/publish" \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json"
+```json
+{
+  "status": "unpublished"
+}
 ```
-
----
-
-## Unpublish Content
-
-```
-POST /{project}/contents/{type}/{id}/unpublish
-```
-
-### Path Parameters
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `id` | string | Yes | - |
-| `type` | string | Yes | - |
-| `project` | string | Yes | - |
 
 ### cURL Example
 
 ```bash
-curl -X POST "https://my-project.atlascms.io/{project}/contents/posts/item-id/unpublish" \
+curl -X POST "https://my-project.atlascms.io/{project}/contents/posts/item-id/status" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
-  -H "Accept: application/json"
+  -H "Accept: application/json" \
+  -d '{"status":"unpublished"}'
 ```
 
 ---

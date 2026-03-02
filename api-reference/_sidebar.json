@@ -4,14 +4,6 @@
     "link": "/api-reference/"
   },
   {
-    "text": "Accounts",
-    "link": "/api-reference/accounts"
-  },
-  {
-    "text": "API Tokens",
-    "link": "/api-reference/api-tokens"
-  },
-  {
     "text": "Contents",
     "link": "/api-reference/contents"
   },
@@ -28,14 +20,6 @@
     "link": "/api-reference/assets"
   },
   {
-    "text": "Projects",
-    "link": "/api-reference/projects"
-  },
-  {
-    "text": "Project Memberships",
-    "link": "/api-reference/project-memberships"
-  },
-  {
     "text": "Users",
     "link": "/api-reference/users"
   },
@@ -44,27 +28,19 @@
     "link": "/api-reference/roles"
   },
   {
-    "text": "Webhooks",
-    "link": "/api-reference/webhooks"
-  },
-  {
     "text": "Audits",
     "link": "/api-reference/audits"
   },
   {
-    "text": "Configurations",
-    "link": "/api-reference/configurations"
+    "text": "Admin - Project",
+    "link": "/api-reference/admin-project"
   },
   {
-    "text": "Reports",
-    "link": "/api-reference/reports"
+    "text": "Admin - API Keys",
+    "link": "/api-reference/admin-api-keys"
   },
   {
-    "text": "Subscriptions",
-    "link": "/api-reference/subscriptions"
-  },
-  {
-    "text": "Temp",
-    "link": "/api-reference/temp"
+    "text": "Admin - Webhooks",
+    "link": "/api-reference/admin-webhooks"
   }
 ]

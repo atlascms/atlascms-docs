@@ -93,6 +93,7 @@ GET /{project}/users
       "createdBy": "string",
       "modifiedAt": "2024-01-15T12:00:00Z",
       "modifiedBy": "string",
+      "notes": "string",
       "attributes": {
         "key": "value"
       }
@@ -112,7 +113,7 @@ GET /{project}/users
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/users?username=value&search=value&roleId=value&resolve=value&page=value&size=value&sort=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/users" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -151,7 +152,7 @@ GET /{project}/users/count
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/users/count?username=value&search=value&roleId=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/users/count" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -196,6 +197,7 @@ GET /{project}/users/{id}
   "createdBy": "string",
   "modifiedAt": "2024-01-15T12:00:00Z",
   "modifiedBy": "string",
+  "notes": "string",
   "attributes": {
     "key": "value"
   }
@@ -205,7 +207,7 @@ GET /{project}/users/{id}
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/users/item-id?resolve=value" \
+curl -X GET "https://my-project.atlascms.io/{project}/users/item-id" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -238,7 +240,7 @@ PUT /{project}/users/{id}
   "roles": [
     "string"
   ],
-  "isActive": true,
+  "notes": "string",
   "attributes": {
     "key": "value"
   }
@@ -252,7 +254,7 @@ curl -X PUT "https://my-project.atlascms.io/{project}/users/item-id" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
-  -d '{"firstName":"string","lastName":"string","username":"string","email":"string","mobilePhone":"string","roles":["string"],"isActive":true,"attributes":{"key":"value"}}'
+  -d '{"firstName":"string","lastName":"string","username":"string","email":"string","mobilePhone":"string","roles":["string"],"notes":"string","attributes":{"key":"value"}}'
 ```
 
 ---
@@ -329,6 +331,39 @@ curl -X POST "https://my-project.atlascms.io/{project}/users/register" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{"firstName":"string","lastName":"string","username":"string","email":"string","mobilePhone":"string","roles":["string"],"password":"string","isActive":true,"attributes":{"key":"value"}}'
+```
+
+---
+
+## Change the user status active/inactive
+
+```
+POST /{project}/users/{id}/status
+```
+
+### Path Parameters
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `id` | string | Yes | - |
+| `project` | string | Yes | - |
+
+### Request Body
+
+```json
+{
+  "isActive": true
+}
+```
+
+### cURL Example
+
+```bash
+curl -X POST "https://my-project.atlascms.io/{project}/users/item-id/status" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -d '{"isActive":true}'
 ```
 
 ---

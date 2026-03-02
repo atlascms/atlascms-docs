@@ -11,9 +11,54 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const SWAGGER_PATH = '/Users/simonebelia/Desktop/swagger.json';
+const SWAGGER_PATH = path.join(__dirname, '../swagger.json');
 const OUTPUT_DIR = path.join(__dirname, '../api-reference');
 const BASE_URL = 'https://{project}.atlascms.io';
+
+// Only include APIs with these tags. Admin tag is split by path into sub-sections.
+const ALLOWED_TAGS = [
+  'Contents',
+  'Models',
+  'Media Library',
+  'Assets',
+  'Users',
+  'Roles',
+  'Audits',
+];
+
+// Map Admin endpoints to sub-sections by path prefix
+const ADMIN_PATH_MAP = {
+  'api-keys': 'Admin - API Keys',
+  'webhooks': 'Admin - Webhooks',
+  'metrics': 'Admin - Project',
+  'reports': 'Admin - Project',
+};
+
+// Excluded endpoints (method, path)
+const EXCLUDED_ENDPOINTS = [
+  ['GET', '/admin/ui/settings'],
+  ['GET', '/{project}/admin/subscriptions/current'],
+  ['GET', '/{project}/admin/subscriptions/plans'],
+  ['POST', '/{project}/admin/subscriptions/checkout'],
+  ['DELETE', '/{project}'],
+];
+
+function isExcluded(method, pathKey) {
+  return EXCLUDED_ENDPOINTS.some(([m, p]) => m === method && p === pathKey);
+}
+
+// Paths to exclude from Admin (no section for these)
+const ADMIN_EXCLUDED_PATHS = ['memberships', 'memberhips/roles', 'subscriptions', 'ui/settings'];
+
+function resolveAdminTag(pathKey) {
+  if (!pathKey.includes('/admin/')) return null;
+  const afterAdmin = pathKey.split('/admin/')[1] || '';
+  if (ADMIN_EXCLUDED_PATHS.some(p => afterAdmin.startsWith(p))) return null;
+  for (const [prefix, tag] of Object.entries(ADMIN_PATH_MAP)) {
+    if (afterAdmin.startsWith(prefix)) return tag;
+  }
+  return 'Admin - Project'; // default for other admin paths
+}
 
 const swagger = JSON.parse(fs.readFileSync(SWAGGER_PATH, 'utf8'));
 const schemas = swagger.components?.schemas || {};
@@ -22,8 +67,10 @@ const paths = swagger.paths || {};
 function slugify(str) {
   return str
     .toLowerCase()
+    .replace(/\s*-\s*/g, '-') // "Admin - Project" -> "admin-project"
     .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '');
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-'); // collapse multiple hyphens
 }
 
 function resolveRef(ref) {
@@ -123,21 +170,55 @@ function buildCurl(method, path, params = {}, hasBody = false, body = null) {
   return curl;
 }
 
-// Group endpoints by tag
+// Group endpoints by tag (filtered)
 const groups = {};
 for (const [pathKey, pathItem] of Object.entries(paths)) {
   for (const [method, op] of Object.entries(pathItem)) {
     if (!['get', 'post', 'put', 'delete', 'patch'].includes(method)) continue;
+    const methodUpper = method.toUpperCase();
+    if (isExcluded(methodUpper, pathKey)) continue;
     const tags = op.tags || ['Other'];
     for (const tag of tags) {
-      if (!groups[tag]) groups[tag] = [];
+      let resolvedTag = tag;
+      if (tag === 'Admin') {
+        resolvedTag = resolveAdminTag(pathKey);
+        if (!resolvedTag) continue;
+      } else if (!ALLOWED_TAGS.includes(tag)) {
+        continue;
+      }
+      if (!groups[resolvedTag]) groups[resolvedTag] = [];
       const reqSchema = getRequestBodySchema(op);
       const respSchema = getResponseSchema(op);
-      const reqSchemaRef = reqSchema?.$ref ? resolveRef(reqSchema.$ref) : reqSchema;
-      const respSchemaRef = respSchema?.$ref ? resolveRef(respSchema.$ref) : respSchema;
-      groups[tag].push({
+      groups[resolvedTag].push({
         path: pathKey,
         method: method.toUpperCase(),
+        summary: op.summary || '',
+        parameters: op.parameters || [],
+        requestBody: op.requestBody,
+        requestExample: reqSchema ? generateExampleFromSchema(reqSchema) : null,
+        responseExample: respSchema ? generateExampleFromSchema(respSchema) : null,
+      });
+    }
+  }
+}
+
+// Add Projects tag for /{project} and /projects - these map to Admin -> Project (exclude DELETE /{project})
+const projectsPaths = ['/{project}', '/projects'];
+for (const [pathKey, pathItem] of Object.entries(paths)) {
+  if (!projectsPaths.includes(pathKey)) continue;
+  for (const [method, op] of Object.entries(pathItem)) {
+    if (!['get', 'post', 'put', 'delete', 'patch'].includes(method)) continue;
+    const methodUpper = method.toUpperCase();
+    if (isExcluded(methodUpper, pathKey)) continue;
+    const tags = op.tags || [];
+    if (tags.includes('Projects')) {
+      const resolvedTag = 'Admin - Project';
+      if (!groups[resolvedTag]) groups[resolvedTag] = [];
+      const reqSchema = getRequestBodySchema(op);
+      const respSchema = getResponseSchema(op);
+      groups[resolvedTag].push({
+        path: pathKey,
+        method: methodUpper,
         summary: op.summary || '',
         parameters: op.parameters || [],
         requestBody: op.requestBody,
@@ -152,8 +233,19 @@ for (const [pathKey, pathItem] of Object.entries(paths)) {
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 const sidebarItems = [{ text: 'Overview', link: '/api-reference/' }];
 
-// Sort tags (Accounts first, then alphabetical for rest)
-const tagOrder = ['Accounts', 'API Tokens', 'Contents', 'Models', 'Media Library', 'Assets', 'Projects', 'Project Memberships', 'Users', 'Roles', 'Webhooks', 'Audits', 'Configurations', 'Reports', 'Subscriptions', 'Temp'];
+// Sort tags
+const tagOrder = [
+  'Contents',
+  'Models',
+  'Media Library',
+  'Assets',
+  'Users',
+  'Roles',
+  'Audits',
+  'Admin - Project',
+  'Admin - API Keys',
+  'Admin - Webhooks',
+];
 const sortedTags = [...new Set([...tagOrder.filter(t => groups[t]), ...Object.keys(groups).filter(t => !tagOrder.includes(t))])];
 
 for (const tag of sortedTags) {

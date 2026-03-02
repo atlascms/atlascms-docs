@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /introduction/getting-started
+      link: /introduction/what-is-atlas-cms
     - theme: alt
       text: API Reference
       link: /api-reference/

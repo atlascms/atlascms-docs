@@ -1,14 +1,14 @@
 ---
-title: Webhooks
-description: API Reference - Webhooks
+title: Admin - Webhooks
+description: API Reference - Admin - Webhooks
 ---
 
-# Webhooks
+# Admin - Webhooks
 
 ## Get Webhooks
 
 ```
-GET /{project}/webhooks
+GET /{project}/admin/webhooks
 ```
 
 ### Path Parameters
@@ -23,6 +23,7 @@ GET /{project}/webhooks
 [
   {
     "id": "string",
+    "projectId": "string",
     "name": "string",
     "url": "string",
     "enabled": true,
@@ -51,7 +52,7 @@ GET /{project}/webhooks
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/webhooks" \
+curl -X GET "https://my-project.atlascms.io/{project}/admin/webhooks" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -62,7 +63,7 @@ curl -X GET "https://my-project.atlascms.io/{project}/webhooks" \
 ## Create Webhook
 
 ```
-POST /{project}/webhooks
+POST /{project}/admin/webhooks
 ```
 
 ### Path Parameters
@@ -106,7 +107,7 @@ POST /{project}/webhooks
 ### cURL Example
 
 ```bash
-curl -X POST "https://my-project.atlascms.io/{project}/webhooks" \
+curl -X POST "https://my-project.atlascms.io/{project}/admin/webhooks" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
@@ -118,7 +119,7 @@ curl -X POST "https://my-project.atlascms.io/{project}/webhooks" \
 ## Get Webhook
 
 ```
-GET /{project}/webhooks/{id}
+GET /{project}/admin/webhooks/{id}
 ```
 
 ### Path Parameters
@@ -133,6 +134,7 @@ GET /{project}/webhooks/{id}
 ```json
 {
   "id": "string",
+  "projectId": "string",
   "name": "string",
   "url": "string",
   "enabled": true,
@@ -160,7 +162,7 @@ GET /{project}/webhooks/{id}
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/webhooks/item-id" \
+curl -X GET "https://my-project.atlascms.io/{project}/admin/webhooks/item-id" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -171,7 +173,7 @@ curl -X GET "https://my-project.atlascms.io/{project}/webhooks/item-id" \
 ## Update Webhook
 
 ```
-PUT /{project}/webhooks/{id}
+PUT /{project}/admin/webhooks/{id}
 ```
 
 ### Path Parameters
@@ -210,6 +212,7 @@ PUT /{project}/webhooks/{id}
 ```json
 {
   "id": "string",
+  "projectId": "string",
   "name": "string",
   "url": "string",
   "enabled": true,
@@ -237,7 +240,7 @@ PUT /{project}/webhooks/{id}
 ### cURL Example
 
 ```bash
-curl -X PUT "https://my-project.atlascms.io/{project}/webhooks/item-id" \
+curl -X PUT "https://my-project.atlascms.io/{project}/admin/webhooks/item-id" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
@@ -249,7 +252,7 @@ curl -X PUT "https://my-project.atlascms.io/{project}/webhooks/item-id" \
 ## Delete Webhook
 
 ```
-DELETE /{project}/webhooks/{id}
+DELETE /{project}/admin/webhooks/{id}
 ```
 
 ### Path Parameters
@@ -262,7 +265,7 @@ DELETE /{project}/webhooks/{id}
 ### cURL Example
 
 ```bash
-curl -X DELETE "https://my-project.atlascms.io/{project}/webhooks/item-id" \
+curl -X DELETE "https://my-project.atlascms.io/{project}/admin/webhooks/item-id" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"

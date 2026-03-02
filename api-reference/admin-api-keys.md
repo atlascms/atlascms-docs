@@ -1,14 +1,14 @@
 ---
-title: API Tokens
-description: API Reference - API Tokens
+title: Admin - API Keys
+description: API Reference - Admin - API Keys
 ---
 
-# API Tokens
+# Admin - API Keys
 
-## Get Api Tokens
+## Get Api Keys
 
 ```
-GET /{project}/api-tokens
+GET /{project}/admin/api-keys
 ```
 
 ### Path Parameters
@@ -38,7 +38,7 @@ GET /{project}/api-tokens
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/api-tokens" \
+curl -X GET "https://my-project.atlascms.io/{project}/admin/api-keys" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -46,10 +46,10 @@ curl -X GET "https://my-project.atlascms.io/{project}/api-tokens" \
 
 ---
 
-## Create Api Token
+## Create Api Key
 
 ```
-POST /{project}/api-tokens
+POST /{project}/admin/api-keys
 ```
 
 ### Path Parameters
@@ -83,7 +83,7 @@ POST /{project}/api-tokens
 ### cURL Example
 
 ```bash
-curl -X POST "https://my-project.atlascms.io/{project}/api-tokens" \
+curl -X POST "https://my-project.atlascms.io/{project}/admin/api-keys" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
@@ -92,10 +92,10 @@ curl -X POST "https://my-project.atlascms.io/{project}/api-tokens" \
 
 ---
 
-## Get Api Token
+## Get Api Key
 
 ```
-GET /{project}/api-tokens/{id}
+GET /{project}/admin/api-keys/{id}
 ```
 
 ### Path Parameters
@@ -124,7 +124,7 @@ GET /{project}/api-tokens/{id}
 ### cURL Example
 
 ```bash
-curl -X GET "https://my-project.atlascms.io/{project}/api-tokens/item-id" \
+curl -X GET "https://my-project.atlascms.io/{project}/admin/api-keys/item-id" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
@@ -132,10 +132,10 @@ curl -X GET "https://my-project.atlascms.io/{project}/api-tokens/item-id" \
 
 ---
 
-## Update Api Token
+## Update Api Key
 
 ```
-PUT /{project}/api-tokens/{id}
+PUT /{project}/admin/api-keys/{id}
 ```
 
 ### Path Parameters
@@ -162,7 +162,7 @@ PUT /{project}/api-tokens/{id}
 ### cURL Example
 
 ```bash
-curl -X PUT "https://my-project.atlascms.io/{project}/api-tokens/item-id" \
+curl -X PUT "https://my-project.atlascms.io/{project}/admin/api-keys/item-id" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
@@ -171,10 +171,10 @@ curl -X PUT "https://my-project.atlascms.io/{project}/api-tokens/item-id" \
 
 ---
 
-## Delete Api Token
+## Delete Api Key
 
 ```
-DELETE /{project}/api-tokens/{id}
+DELETE /{project}/admin/api-keys/{id}
 ```
 
 ### Path Parameters
@@ -187,7 +187,7 @@ DELETE /{project}/api-tokens/{id}
 ### cURL Example
 
 ```bash
-curl -X DELETE "https://my-project.atlascms.io/{project}/api-tokens/item-id" \
+curl -X DELETE "https://my-project.atlascms.io/{project}/admin/api-keys/item-id" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"

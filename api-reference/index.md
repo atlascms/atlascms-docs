@@ -11,19 +11,13 @@ Complete reference of all Atlas CMS API endpoints. All endpoints require authent
 
 ## API Sections
 
-- [Accounts](/api-reference/accounts)
-- [API Tokens](/api-reference/api-tokens)
 - [Contents](/api-reference/contents)
 - [Models](/api-reference/models)
 - [Media Library](/api-reference/media-library)
 - [Assets](/api-reference/assets)
-- [Projects](/api-reference/projects)
-- [Project Memberships](/api-reference/project-memberships)
 - [Users](/api-reference/users)
 - [Roles](/api-reference/roles)
-- [Webhooks](/api-reference/webhooks)
 - [Audits](/api-reference/audits)
-- [Configurations](/api-reference/configurations)
-- [Reports](/api-reference/reports)
-- [Subscriptions](/api-reference/subscriptions)
-- [Temp](/api-reference/temp)
+- [Admin - Project](/api-reference/admin-project)
+- [Admin - API Keys](/api-reference/admin-api-keys)
+- [Admin - Webhooks](/api-reference/admin-webhooks)
