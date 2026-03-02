@@ -5,7 +5,11 @@ description: API Reference - Admin - Webhooks
 
 # Admin - Webhooks
 
-## Get Webhooks
+APIs for configuring webhooks. Receive real-time notifications when content or other resources change.
+
+## Get Webhooks <span class="http-badge http-badge-get">GET</span>
+
+Lists all webhooks configured for the project.
 
 ```
 GET /{project}/admin/webhooks
@@ -58,9 +62,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/admin/webhooks" \
   -H "Accept: application/json"
 ```
 
----
+## Create Webhook <span class="http-badge http-badge-post">POST</span>
 
-## Create Webhook
+Creates a new webhook to receive events. Configure URL, events, and authentication.
 
 ```
 POST /{project}/admin/webhooks
@@ -114,9 +118,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/admin/webhooks" \
   -d '{"name":"string","url":"string","enabled":true,"includePayload":true,"headers":[{"key":"string","value":"string"}],"entityType":"string","events":["string"],"entityTypeIds":["string"]}'
 ```
 
----
+## Get Webhook <span class="http-badge http-badge-get">GET</span>
 
-## Get Webhook
+Retrieves a single webhook configuration by ID.
 
 ```
 GET /{project}/admin/webhooks/{id}
@@ -168,9 +172,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/admin/webhooks/item-id" \
   -H "Accept: application/json"
 ```
 
----
+## Update Webhook <span class="http-badge http-badge-put">PUT</span>
 
-## Update Webhook
+Updates an existing webhook's configuration.
 
 ```
 PUT /{project}/admin/webhooks/{id}
@@ -247,9 +251,9 @@ curl -X PUT "https://my-project.atlascms.io/{project}/admin/webhooks/item-id" \
   -d '{"name":"string","url":"string","enabled":true,"includePayload":true,"headers":[{"key":"string","value":"string"}],"entityType":"string","events":["string"],"entityTypeIds":["string"]}'
 ```
 
----
+## Delete Webhook <span class="http-badge http-badge-delete">DELETE</span>
 
-## Delete Webhook
+Removes a webhook. It will no longer receive events.
 
 ```
 DELETE /{project}/admin/webhooks/{id}
@@ -270,6 +274,4 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/admin/webhooks/item-id"
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
 ```
-
----
 

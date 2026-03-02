@@ -22,6 +22,8 @@ You can create your Models with the Visual Model Builder accessible through the 
 
 The first time you access, Atlas CMS will allow you to create the first model. Selecting the Create Model button a modal screen comes up asking to enter the information required.
 
+![Visual Model Builder overview with models list and fields panel](/images/modelbuilder-overview.png)
+
 Models have properties you can edit when you create or update them, to define their behaviours:
 
 | Property | Description |
@@ -72,7 +74,5 @@ The Fields available are:
 | **Value Array** | A repeatable field to store an array of simple strings |
 | **Json** | To store a custom Json Object |
 | **Relations** | To create relation to other contents of different models or of the same |
-| **Component** | To embedded the data structure of a component |
-| **Multi Component** | To embedded an array of multiple dynamic components |
-
-![Model Builder placeholder](/images/placeholder.svg)
+| **Component** | To embed the data structure of a component |
+| **Multi Component** | To embed an array of multiple dynamic components |

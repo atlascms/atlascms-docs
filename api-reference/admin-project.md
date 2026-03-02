@@ -5,7 +5,11 @@ description: API Reference - Admin - Project
 
 # Admin - Project
 
-## Get Project's Metrics
+APIs for project administration: settings, metrics, counters, and content statistics.
+
+## Get Project's Metrics <span class="http-badge http-badge-get">GET</span>
+
+Returns usage metrics for the project (API calls, storage, etc.).
 
 ```
 GET /{project}/admin/metrics
@@ -36,9 +40,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/admin/metrics" \
   -H "Accept: application/json"
 ```
 
----
+## Get Counters <span class="http-badge http-badge-get">GET</span>
 
-## Get Counters
+Returns counter statistics for the project.
 
 ```
 GET /{project}/admin/reports/counters
@@ -79,9 +83,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/admin/reports/counters" \
   -H "Accept: application/json"
 ```
 
----
+## Get Content Stats <span class="http-badge http-badge-get">GET</span>
 
-## Get Content Stats
+Returns content statistics per model (published/unpublished counts).
 
 ```
 GET /{project}/admin/reports/contents
@@ -123,9 +127,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/admin/reports/contents" \
   -H "Accept: application/json"
 ```
 
----
+## Get Projects <span class="http-badge http-badge-get">GET</span>
 
-## Get Projects
+Lists all projects accessible to the authenticated account.
 
 ```
 GET /projects
@@ -164,9 +168,9 @@ curl -X GET "https://{project}.atlascms.io/projects" \
   -H "Accept: application/json"
 ```
 
----
+## Create Project <span class="http-badge http-badge-post">POST</span>
 
-## Create Project
+Creates a new project. Each project is an independent content environment.
 
 ```
 POST /projects
@@ -200,9 +204,9 @@ curl -X POST "https://{project}.atlascms.io/projects" \
   -d '{"name":"string","description":"string","defaultLocale":"string"}'
 ```
 
----
+## Get Project <span class="http-badge http-badge-get">GET</span>
 
-## Get Project
+Retrieves project details and configuration.
 
 ```
 GET /{project}
@@ -245,9 +249,9 @@ curl -X GET "https://my-project.atlascms.io/{project}" \
   -H "Accept: application/json"
 ```
 
----
+## Update Project <span class="http-badge http-badge-put">PUT</span>
 
-## Update Project
+Updates project settings such as name and description.
 
 ```
 PUT /{project}
@@ -299,6 +303,4 @@ curl -X PUT "https://my-project.atlascms.io/{project}" \
   -H "Accept: application/json" \
   -d '{"name":"string","description":"string"}'
 ```
-
----
 

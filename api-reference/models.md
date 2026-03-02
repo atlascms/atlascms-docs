@@ -5,7 +5,11 @@ description: API Reference - Models
 
 # Models
 
-## List Models
+APIs for defining content models and components. Models define the structure of your content; components are reusable building blocks.
+
+## List Models <span class="http-badge http-badge-get">GET</span>
+
+Returns the list of content models defined in the project.
 
 ```
 GET /{project}/content-types/models
@@ -81,9 +85,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/content-types/models" \
   -H "Accept: application/json"
 ```
 
----
+## Create Model <span class="http-badge http-badge-post">POST</span>
 
-## Create Model
+Creates a new content model with the specified fields and configuration.
 
 ```
 POST /{project}/content-types/models
@@ -158,9 +162,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/content-types/models" \
   -d '{"key":"string","name":"string","description":"string","isSingle":true,"localizable":true,"enableStageMode":true,"attributes":[{"key":"string","label":"string","name":"string","hint":"string","order":0,"type":"string","localizable":true,"hidden":true,"readOnly":true,"required":true}],"properties":{"icon":"string","fieldsets":[{"key":"string","name":"string","description":"string","collapsed":true,"fields":[]}],"links":[{"key":"string","value":"string"}]}}'
 ```
 
----
+## Get Model <span class="http-badge http-badge-get">GET</span>
 
-## Get Model
+Retrieves a single model by ID including its field definitions.
 
 ```
 GET /{project}/content-types/models/{id}
@@ -242,9 +246,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/content-types/models/item-
   -H "Accept: application/json"
 ```
 
----
+## Update Model <span class="http-badge http-badge-put">PUT</span>
 
-## Update Model
+Updates an existing model. Changes apply immediately to content.
 
 ```
 PUT /{project}/content-types/models/{id}
@@ -318,9 +322,9 @@ curl -X PUT "https://my-project.atlascms.io/{project}/content-types/models/item-
   -d '{"name":"string","description":"string","localizable":true,"enableStageMode":true,"attributes":[{"key":"string","label":"string","name":"string","hint":"string","order":0,"type":"string","localizable":true,"hidden":true,"readOnly":true,"required":true}],"properties":{"icon":"string","fieldsets":[{"key":"string","name":"string","description":"string","collapsed":true,"fields":[]}],"links":[{"key":"string","value":"string"}]}}'
 ```
 
----
+## Delete Model <span class="http-badge http-badge-delete">DELETE</span>
 
-## Delete Model
+Deletes a model and all its content. This action cannot be undone.
 
 ```
 DELETE /{project}/content-types/models/{id}
@@ -342,9 +346,9 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/content-types/models/it
   -H "Accept: application/json"
 ```
 
----
+## List Components <span class="http-badge http-badge-get">GET</span>
 
-## List Components
+Returns the list of reusable components defined in the project.
 
 ```
 GET /{project}/content-types/components
@@ -398,9 +402,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/content-types/components" 
   -H "Accept: application/json"
 ```
 
----
+## Create Component <span class="http-badge http-badge-post">POST</span>
 
-## Create Component
+Creates a new content component that can be embedded in models.
 
 ```
 POST /{project}/content-types/components
@@ -454,9 +458,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/content-types/components"
   -d '{"key":"string","name":"string","description":"string","attributes":[{"key":"string","label":"string","name":"string","hint":"string","order":0,"type":"string","localizable":true,"hidden":true,"readOnly":true,"required":true}]}'
 ```
 
----
+## Get Component <span class="http-badge http-badge-get">GET</span>
 
-## Get Component
+Retrieves a single component by ID including its field definitions.
 
 ```
 GET /{project}/content-types/components/{id}
@@ -509,9 +513,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/content-types/components/i
   -H "Accept: application/json"
 ```
 
----
+## Update Component <span class="http-badge http-badge-put">PUT</span>
 
-## Update Component
+Updates an existing component.
 
 ```
 PUT /{project}/content-types/components/{id}
@@ -565,9 +569,9 @@ curl -X PUT "https://my-project.atlascms.io/{project}/content-types/components/i
   -d '{"name":"string","description":"string","attributes":[{"key":"string","label":"string","name":"string","hint":"string","order":0,"type":"string","localizable":true,"hidden":true,"readOnly":true,"required":true}]}'
 ```
 
----
+## Delete Component <span class="http-badge http-badge-delete">DELETE</span>
 
-## Delete Component
+Deletes a component. Models using it must be updated first.
 
 ```
 DELETE /{project}/content-types/components/{id}
@@ -588,6 +592,4 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/content-types/component
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
 ```
-
----
 

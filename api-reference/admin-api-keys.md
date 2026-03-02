@@ -5,7 +5,11 @@ description: API Reference - Admin - API Keys
 
 # Admin - API Keys
 
-## Get Api Keys
+APIs for managing API keys. Create, update, and revoke keys used to authenticate API requests.
+
+## Get Api Keys <span class="http-badge http-badge-get">GET</span>
+
+Lists all API keys for the project. API keys are used to authenticate requests.
 
 ```
 GET /{project}/admin/api-keys
@@ -44,9 +48,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/admin/api-keys" \
   -H "Accept: application/json"
 ```
 
----
+## Create Api Key <span class="http-badge http-badge-post">POST</span>
 
-## Create Api Key
+Creates a new API key with configurable permissions and optional expiry.
 
 ```
 POST /{project}/admin/api-keys
@@ -90,9 +94,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/admin/api-keys" \
   -d '{"name":"string","isActive":true,"validFrom":"2024-01-15T12:00:00Z","validTo":"2024-01-15T12:00:00Z","permissions":["string"]}'
 ```
 
----
+## Get Api Key <span class="http-badge http-badge-get">GET</span>
 
-## Get Api Key
+Retrieves a single API key by ID.
 
 ```
 GET /{project}/admin/api-keys/{id}
@@ -130,9 +134,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/admin/api-keys/item-id" \
   -H "Accept: application/json"
 ```
 
----
+## Update Api Key <span class="http-badge http-badge-put">PUT</span>
 
-## Update Api Key
+Updates an API key's permissions or expiry date.
 
 ```
 PUT /{project}/admin/api-keys/{id}
@@ -169,9 +173,9 @@ curl -X PUT "https://my-project.atlascms.io/{project}/admin/api-keys/item-id" \
   -d '{"name":"string","isActive":true,"validFrom":"2024-01-15T12:00:00Z","validTo":"2024-01-15T12:00:00Z","permissions":["string"]}'
 ```
 
----
+## Delete Api Key <span class="http-badge http-badge-delete">DELETE</span>
 
-## Delete Api Key
+Revokes and deletes an API key. Requests using this key will fail.
 
 ```
 DELETE /{project}/admin/api-keys/{id}
@@ -192,6 +196,4 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/admin/api-keys/item-id"
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
 ```
-
----
 

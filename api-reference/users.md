@@ -5,7 +5,11 @@ description: API Reference - Users
 
 # Users
 
-## Login User
+APIs for managing users within a project. Create, update, and delete users; manage authentication and account status.
+
+## Login User <span class="http-badge http-badge-post">POST</span>
+
+Authenticates a user with username and password. Returns an access token for API requests.
 
 ```
 POST /{project}/users/login
@@ -49,9 +53,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/users/login" \
   -d '{"username":"string","password":"string"}'
 ```
 
----
+## Get Users <span class="http-badge http-badge-get">GET</span>
 
-## Get Users
+Lists all users in the project with pagination.
 
 ```
 GET /{project}/users
@@ -119,9 +123,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/users" \
   -H "Accept: application/json"
 ```
 
----
+## Count Users <span class="http-badge http-badge-get">GET</span>
 
-## Count Users
+Returns the total count of users in the project.
 
 ```
 GET /{project}/users/count
@@ -158,9 +162,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/users/count" \
   -H "Accept: application/json"
 ```
 
----
+## Get User <span class="http-badge http-badge-get">GET</span>
 
-## Get User
+Retrieves a single user by ID.
 
 ```
 GET /{project}/users/{id}
@@ -213,9 +217,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/users/item-id" \
   -H "Accept: application/json"
 ```
 
----
+## Update User <span class="http-badge http-badge-put">PUT</span>
 
-## Update User
+Updates user attributes such as name or status.
 
 ```
 PUT /{project}/users/{id}
@@ -257,9 +261,9 @@ curl -X PUT "https://my-project.atlascms.io/{project}/users/item-id" \
   -d '{"firstName":"string","lastName":"string","username":"string","email":"string","mobilePhone":"string","roles":["string"],"notes":"string","attributes":{"key":"value"}}'
 ```
 
----
+## Delete User <span class="http-badge http-badge-delete">DELETE</span>
 
-## Delete User
+Removes a user from the project.
 
 ```
 DELETE /{project}/users/{id}
@@ -281,9 +285,9 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/users/item-id" \
   -H "Accept: application/json"
 ```
 
----
+## Create User <span class="http-badge http-badge-post">POST</span>
 
-## Create User
+Creates a new user in the project.
 
 ```
 POST /{project}/users/register
@@ -333,9 +337,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/users/register" \
   -d '{"firstName":"string","lastName":"string","username":"string","email":"string","mobilePhone":"string","roles":["string"],"password":"string","isActive":true,"attributes":{"key":"value"}}'
 ```
 
----
+## Change the user status active/inactive <span class="http-badge http-badge-post">POST</span>
 
-## Change the user status active/inactive
+Enables or disables a user account. Inactive users cannot log in.
 
 ```
 POST /{project}/users/{id}/status
@@ -366,9 +370,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/users/item-id/status" \
   -d '{"isActive":true}'
 ```
 
----
+## Change Password <span class="http-badge http-badge-post">POST</span>
 
-## Change Password
+Changes the password for a user. Requires admin privileges.
 
 ```
 POST /{project}/users/{id}/change-password
@@ -398,6 +402,4 @@ curl -X POST "https://my-project.atlascms.io/{project}/users/item-id/change-pass
   -H "Accept: application/json" \
   -d '{"password":"string"}'
 ```
-
----
 

@@ -58,20 +58,6 @@ The Media data model:
 | path | The folder full path |
 | children | Array of folder objects |
 
-## API Endpoints
-
-| Operation | Method | Endpoint |
-|-----------|--------|----------|
-| List Media | GET | `/media-library/media` |
-| Get Media | GET | `/media-library/media/{id}` |
-| Delete Media | DELETE | `/media-library/media/{id}` |
-| Move Media | POST | `/media-library/media/move` |
-| List Folders | GET | `/media-library/folders` |
-| Create Folder | POST | `/media-library/folders` |
-| Rename Folder | POST | `/media-library/folders/rename` |
-| Move Folder | POST | `/media-library/folders/move` |
-| Delete Folder | DELETE | `/media-library/folders` |
-
 ### Query Parameters (List Media)
 
 - **page:** Page number (default: 1)

@@ -5,7 +5,11 @@ description: API Reference - Media Library
 
 # Media Library
 
-## Get Folders
+APIs for managing the media library: folders, uploads, and asset metadata. Organize files, set tags, and move assets between folders.
+
+## Get Folders <span class="http-badge http-badge-get">GET</span>
+
+Returns the folder structure of the media library for organizing assets.
 
 ```
 GET /{project}/media-library/folders
@@ -55,9 +59,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/media-library/folders" \
   -H "Accept: application/json"
 ```
 
----
+## Create Folder <span class="http-badge http-badge-post">POST</span>
 
-## Create Folder
+Creates a new folder in the media library.
 
 ```
 POST /{project}/media-library/folders
@@ -95,9 +99,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/media-library/folders" \
   -d '{"folder":"string"}'
 ```
 
----
+## Delete Folder <span class="http-badge http-badge-delete">DELETE</span>
 
-## Delete Folder
+Deletes a folder and all its contents. Use with caution.
 
 ```
 DELETE /{project}/media-library/folders
@@ -124,9 +128,9 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/media-library/folders?f
   -H "Accept: application/json"
 ```
 
----
+## Rename Folder <span class="http-badge http-badge-post">POST</span>
 
-## Rename Folder
+Renames an existing folder in the media library.
 
 ```
 POST /{project}/media-library/folders/rename
@@ -165,9 +169,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/media-library/folders/ren
   -d '{"folder":"string","newName":"string"}'
 ```
 
----
+## Move Folder <span class="http-badge http-badge-post">POST</span>
 
-## Move Folder
+Moves a folder to a different parent folder.
 
 ```
 POST /{project}/media-library/folders/move
@@ -206,9 +210,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/media-library/folders/mov
   -d '{"folder":"string","moveTo":"string"}'
 ```
 
----
+## Get Medias <span class="http-badge http-badge-get">GET</span>
 
-## Get Medias
+Retrieves a paginated list of media assets. Supports filtering by folder and search.
 
 ```
 GET /{project}/media-library/media
@@ -290,9 +294,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/media-library/media" \
   -H "Accept: application/json"
 ```
 
----
+## Get Media <span class="http-badge http-badge-get">GET</span>
 
-## Get Media
+Retrieves a single media asset by ID.
 
 ```
 GET /{project}/media-library/media/{id}
@@ -355,9 +359,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/media-library/media/item-i
   -H "Accept: application/json"
 ```
 
----
+## Delete Media <span class="http-badge http-badge-delete">DELETE</span>
 
-## Delete Media
+Permanently deletes a media asset.
 
 ```
 DELETE /{project}/media-library/media/{id}
@@ -379,9 +383,9 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/media-library/media/ite
   -H "Accept: application/json"
 ```
 
----
+## Set Media Tags <span class="http-badge http-badge-post">POST</span>
 
-## Set Media Tags
+Updates the tags associated with a media asset.
 
 ```
 POST /{project}/media-library/media/{id}/tags
@@ -414,9 +418,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/media-library/media/item-
   -d '{"tags":["string"]}'
 ```
 
----
+## Upload File (form-data) <span class="http-badge http-badge-post">POST</span>
 
-## Upload File (form-data)
+Uploads a new file to the media library. Use multipart/form-data with the file field.
 
 ```
 POST /{project}/media-library/media/upload
@@ -450,9 +454,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/media-library/media/uploa
   -d '{}'
 ```
 
----
+## Move Media <span class="http-badge http-badge-post">POST</span>
 
-## Move Media
+Moves a media asset to a different folder.
 
 ```
 POST /{project}/media-library/media/move
@@ -490,6 +494,4 @@ curl -X POST "https://my-project.atlascms.io/{project}/media-library/media/move"
   -H "Accept: application/json" \
   -d '{"mediaId":"string","moveTo":"string"}'
 ```
-
----
 

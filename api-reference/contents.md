@@ -5,7 +5,11 @@ description: API Reference - Contents
 
 # Contents
 
-## Get Contents
+APIs for managing content entries. Create, read, update, and delete content; publish/unpublish; duplicate; and manage localized versions.
+
+## Get Contents <span class="http-badge http-badge-get">GET</span>
+
+Retrieves a paginated list of content entries for the specified model. Supports filtering, sorting, and locale selection.
 
 ```
 GET /{project}/contents/{type}
@@ -72,9 +76,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/contents/posts" \
   -H "Accept: application/json"
 ```
 
----
+## Create Content <span class="http-badge http-badge-post">POST</span>
 
-## Create Content
+Creates a new content entry in the specified model. Requires locale and attributes matching the model schema.
 
 ```
 POST /{project}/contents/{type}
@@ -116,9 +120,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/contents/posts" \
   -d '{"locale":"string","attributes":{"key":"value"}}'
 ```
 
----
+## Get Single Content <span class="http-badge http-badge-get">GET</span>
 
-## Get Single Content
+Retrieves the single content entry for models configured with "single collection" (e.g. settings, config).
 
 ```
 GET /{project}/contents/{type}/single
@@ -176,9 +180,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/contents/posts/single" \
   -H "Accept: application/json"
 ```
 
----
+## Count Contents <span class="http-badge http-badge-get">GET</span>
 
-## Count Contents
+Returns the total count of content entries matching the filter criteria, useful for pagination.
 
 ```
 GET /{project}/contents/{type}/count
@@ -217,9 +221,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/contents/posts/count" \
   -H "Accept: application/json"
 ```
 
----
+## Get Content <span class="http-badge http-badge-get">GET</span>
 
-## Get Content
+Retrieves a single content entry by ID. Supports resolving media and relations to full objects.
 
 ```
 GET /{project}/contents/{type}/{id}
@@ -273,9 +277,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/contents/posts/item-id" \
   -H "Accept: application/json"
 ```
 
----
+## Update Content <span class="http-badge http-badge-put">PUT</span>
 
-## Update Content
+Updates an existing content entry. Acts as a patch for attributes—only provided fields are updated.
 
 ```
 PUT /{project}/contents/{type}/{id}
@@ -309,9 +313,9 @@ curl -X PUT "https://my-project.atlascms.io/{project}/contents/posts/item-id" \
   -d '{"attributes":{"key":"value"}}'
 ```
 
----
+## Delete Content <span class="http-badge http-badge-delete">DELETE</span>
 
-## Delete Content
+Permanently deletes a content entry by ID.
 
 ```
 DELETE /{project}/contents/{type}/{id}
@@ -340,9 +344,9 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/contents/posts/item-id"
   -H "Accept: application/json"
 ```
 
----
+## Change the status of a content <span class="http-badge http-badge-post">POST</span>
 
-## Change the status of a content
+Publishes or unpublishes a content entry. Available when the model has stage mode enabled.
 
 ```
 POST /{project}/contents/{type}/{id}/status
@@ -374,9 +378,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/contents/posts/item-id/st
   -d '{"status":"unpublished"}'
 ```
 
----
+## Create Localized version of content <span class="http-badge http-badge-post">POST</span>
 
-## Create Localized version of content
+Creates a new localized version of a content entry for a specified locale.
 
 ```
 POST /{project}/contents/{type}/{id}/create-translation
@@ -416,9 +420,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/contents/posts/item-id/cr
   -d '{"locale":"string"}'
 ```
 
----
+## Duplicate Content <span class="http-badge http-badge-post">POST</span>
 
-## Duplicate Content
+Creates a copy of an existing content entry, optionally including all localized versions.
 
 ```
 POST /{project}/contents/{type}/{id}/duplicate
@@ -458,9 +462,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/contents/posts/item-id/du
   -d '{"locales":true}'
 ```
 
----
+## Delete All Contents <span class="http-badge http-badge-delete">DELETE</span>
 
-## Delete All Contents
+Deletes all content entries in the specified model. Use with caution.
 
 ```
 DELETE /{project}/contents/{type}/clear
@@ -481,6 +485,4 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/contents/posts/clear" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
 ```
-
----
 

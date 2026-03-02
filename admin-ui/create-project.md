@@ -16,4 +16,4 @@ The created project will be added to the list of your projects and you can selec
 Every project you create is assigned the free tier. You can change plans at any time and switch to a paid plan by accessing the Settings → Billings section.
 :::
 
-![Create project placeholder](/images/placeholder.svg)
+![Add Project modal with Display Name, Description and Default Locale fields](/images/create-project.png)

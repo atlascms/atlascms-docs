@@ -1,11 +1,15 @@
 /**
- * Atlas CMS brand color: #9084ff
+ * Atlas CMS Documentation - Modern SaaS Documentation Theme
+ * Brand color: #9084ff
  */
+
+/* ===== Typography ===== */
 :root {
   --vp-c-brand-1: #9084ff;
   --vp-c-brand-2: #a79bff;
   --vp-c-brand-3: #7a6eeb;
   --vp-c-brand-soft: rgba(144, 132, 255, 0.14);
+  --vp-font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .dark {
@@ -15,7 +19,394 @@
   --vp-c-brand-soft: rgba(144, 132, 255, 0.2);
 }
 
-/* Fields container - single wrapper with border */
+/* ===== Document Content - Modern SaaS feel ===== */
+.vp-doc {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Headings - Clear hierarchy with brand accent */
+.vp-doc h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc h2:first-child {
+  margin-top: 0;
+}
+
+.vp-doc h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--vp-c-text-1);
+}
+
+/* Paragraphs - Comfortable reading */
+.vp-doc p {
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  color: var(--vp-c-text-2);
+}
+
+/* Lists */
+.vp-doc ul, .vp-doc ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.vp-doc li {
+  margin-bottom: 0.5rem;
+  line-height: 1.65;
+}
+
+.vp-doc li::marker {
+  color: var(--vp-c-brand-1);
+}
+
+/* Tables - Clean, modern, full width */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  margin: 1.5rem 0;
+  table-layout: auto;
+}
+
+.vp-doc tr {
+  border-top: 1px solid var(--vp-c-divider);
+  transition: background-color 0.2s;
+}
+
+.vp-doc tr:hover {
+  background: var(--vp-c-bg-soft);
+}
+
+.vp-doc th {
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.875rem 1rem;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  text-align: left;
+}
+
+.vp-doc td {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+/* Code blocks */
+.vp-doc div[class*='language-'] {
+  border-radius: 8px;
+  margin: 1.25rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.vp-doc :not(pre) > code {
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-weight: 500;
+}
+
+/* Custom blocks (::: tip, ::: warning, etc.) */
+.vp-doc .custom-block {
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  border-left: 4px solid var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+}
+
+.vp-doc .custom-block.tip {
+  border-left-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+}
+
+.vp-doc .custom-block.warning {
+  border-left-color: #f59e0b;
+}
+
+.vp-doc .custom-block.danger {
+  border-left-color: #ef4444;
+}
+
+.vp-doc .custom-block-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Homepage Hero – layout in riga, immagine intera senza spazi ===== */
+.VPHome .VPHero .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1400px;
+}
+
+.VPHome .VPHero .main {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 480px;
+}
+
+.VPHome .VPHero .image {
+  flex: 1 1 50%;
+  order: 2;
+  margin: 0;
+  min-width: 0;
+}
+
+.VPHome .VPHero .image-container {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  transform: none;
+  display: block;
+}
+
+.VPHome .VPHero .image-bg {
+  display: none;
+}
+
+.VPHome .VPHero .image-container .image-src,
+.VPHome .VPHero .image-container img {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 959px) {
+  .VPHome .VPHero .container {
+    flex-direction: column;
+  }
+  .VPHome .VPHero .image {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+.VPHome .name {
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--vp-c-brand-1) 0%, #a79bff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.VPHome .text {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em;
+}
+
+.VPHome .tagline {
+  font-size: 1.1rem !important;
+  opacity: 0.9;
+}
+
+.VPHome .VPButton {
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+
+.VPHome .VPButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(144, 132, 255, 0.35) !important;
+}
+
+/* Feature cards – allineate ai lati con il contenuto principale (hero) sopra */
+.VPHome .VPFeatures {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 640px) {
+  .VPHome .VPFeatures {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPHome .VPFeatures {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+.VPHome .VPFeatures .container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.VPHome .VPFeatures .items {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .VPHome .VPFeatures .items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 512px) {
+  .VPHome .VPFeatures .items {
+    grid-template-columns: 1fr;
+  }
+}
+
+.VPHome .VPFeatures .item {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+}
+
+.VPHome .VPFeature {
+  border-radius: 12px !important;
+  padding: 1.5rem !important;
+  border: 1px solid var(--vp-c-divider) !important;
+  transition: all 0.25s ease !important;
+  background: var(--vp-c-bg-soft) !important;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.VPHome .VPFeature .details {
+  flex: 1;
+}
+
+.VPHome .VPFeature:hover {
+  border-color: var(--vp-c-brand-1) !important;
+  box-shadow: 0 4px 20px rgba(144, 132, 255, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+.VPHome .VPFeature .title {
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+}
+
+.VPHome .VPFeature .details {
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+/* ===== Sidebar ===== */
+.VPSidebar .group .link {
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.VPSidebar .group .link:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.VPSidebar .group .link.active {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+  background: var(--vp-c-brand-soft);
+}
+
+.VPSidebar .group .link.active::before {
+  background-color: var(--vp-c-brand-1);
+}
+
+/* ===== Nav Bar ===== */
+.VPNavBar {
+  backdrop-filter: blur(12px);
+}
+
+.VPNavBar .nav-link {
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.VPNavBar .nav-link:hover {
+  color: var(--vp-c-brand-1);
+}
+
+/* ===== API Reference specific ===== */
+.vp-doc h2 {
+  scroll-margin-top: 6rem;
+}
+
+/* HTTP method badges */
+.vp-doc .http-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.2em 0.5em;
+  font-size: 0.55em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+.vp-doc .http-badge-get { background: #22c55e; color: #fff; }
+.vp-doc .http-badge-post { background: #3b82f6; color: #fff; }
+.vp-doc .http-badge-put { background: #f59e0b; color: #fff; }
+.vp-doc .http-badge-patch { background: #eab308; color: #1f2937; }
+.vp-doc .http-badge-delete { background: #ef4444; color: #fff; }
+.dark .vp-doc .http-badge-patch { color: #111827; }
+
+.vp-doc details summary {
+  font-weight: 600;
+}
+
+/* ===== Fields container ===== */
 .vp-doc .fields-container {
   margin: 1.5rem 0;
   border: 1px solid var(--vp-c-divider);
@@ -82,4 +473,3 @@
 .dark .vp-doc .fields-container details[open] .field-content {
   background: rgba(255, 255, 255, 0.04);
 }
-

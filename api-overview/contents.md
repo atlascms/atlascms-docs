@@ -87,22 +87,6 @@ When **receiving** data:
 - Media: `string` (id) or `object` (if `resolve=media` parameter is passed)
 - Relations: `Array of strings` (ids) or `Array of objects` (if `resolve=relations` is passed)
 
-## API Endpoints
-
-| Operation | Method | Endpoint |
-|-----------|--------|----------|
-| List Contents | GET | `/contents/{model-key}` |
-| Count Contents | GET | `/contents/{model-key}/count` |
-| Get Content | GET | `/contents/{model-key}/{id}` |
-| Create Content | POST | `/contents/{model-key}` |
-| Update Content | PUT | `/contents/{model-key}/{id}` |
-| Delete Content | DELETE | `/contents/{model-key}/{id}` |
-| Duplicate Content | POST | `/contents/{model-key}/{id}/duplicate` |
-| Create Translation | POST | `/contents/{model-key}/{id}/create-translations` |
-| Publish Content | POST | `/contents/{model-key}/{id}/publish` |
-| Unpublish Content | POST | `/contents/{model-key}/{id}/unpublish` |
-| Delete all | DELETE | `/contents/{model-key}/clear` |
-
 ::: tip
 Content update API acts like a patch for the attributes object. To clean up a field, pass it with `null`. Fields not in the model are skipped.
 :::

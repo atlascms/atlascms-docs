@@ -2,7 +2,7 @@
 
 Each field has common properties you can edit when you add a field or also after it has been created.
 
-![Field properties placeholder](/images/placeholder.svg)
+![Field properties panel when editing a model field](/images/modelbuilder-edit-field.png)
 
 | Property | Description |
 |----------|-------------|

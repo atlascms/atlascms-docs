@@ -5,7 +5,11 @@ description: API Reference - Audits
 
 # Audits
 
-## Get Audits
+APIs for retrieving the audit log. Track changes, who made them, and when for compliance and debugging.
+
+## Get Audits <span class="http-badge http-badge-get">GET</span>
+
+Retrieves the audit log for the project or tenant. Useful for tracking changes and compliance.
 
 ```
 GET /audits
@@ -64,9 +68,9 @@ curl -X GET "https://{project}.atlascms.io/audits?entityId=value&entityType=valu
   -H "Accept: application/json"
 ```
 
----
+## Get Audits <span class="http-badge http-badge-get">GET</span>
 
-## Get Audits
+Retrieves the audit log for the project or tenant. Useful for tracking changes and compliance.
 
 ```
 GET /{project}/audits
@@ -128,6 +132,4 @@ curl -X GET "https://my-project.atlascms.io/{project}/audits?entityId=value&enti
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
 ```
-
----
 

@@ -5,7 +5,11 @@ description: API Reference - Assets
 
 # Assets
 
-## Get the original asset
+APIs for retrieving the actual asset files (images, documents, videos) by ID. Use these URLs to serve media in your frontend.
+
+## Get the original asset <span class="http-badge http-badge-get">GET</span>
+
+Returns the original asset file (image, document, or video) by ID and filename.
 
 ```
 GET /assets/{project}/{id}/{name}
@@ -28,9 +32,9 @@ curl -X GET "https://my-project.atlascms.io/assets/{project}/item-id/filename" \
   -H "Accept: application/json"
 ```
 
----
+## Get the original asset <span class="http-badge http-badge-get">GET</span>
 
-## Get the original asset
+Returns the original asset file (image, document, or video) by ID and filename.
 
 ```
 GET /assets/{project}/docs/{id}/{name}
@@ -53,9 +57,9 @@ curl -X GET "https://my-project.atlascms.io/assets/{project}/docs/item-id/filena
   -H "Accept: application/json"
 ```
 
----
+## Get the original video <span class="http-badge http-badge-get">GET</span>
 
-## Get the original video
+Returns the original video file for streaming or download.
 
 ```
 GET /assets/{project}/video/{id}/{name}
@@ -77,6 +81,4 @@ curl -X GET "https://my-project.atlascms.io/assets/{project}/video/item-id/filen
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
 ```
-
----
 

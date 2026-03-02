@@ -33,7 +33,7 @@ Locales are shown only if the Model has the option Localizable active. Stage is 
 
 Atlas CMS doesn't know upfront which are the fields you created that you want to show in the table. This is why every Content List Table shows only the default columns id, Created At, Modified At, Locales, Stage. You can change the default columns per each model, selecting the attributes you prefer to show on the Table. For this you can click the columns icon. A right panel will appear allowing you to select and order the columns you want to show in the Table.
 
-![Content list placeholder](/images/placeholder.svg)
+![Column Selector panel to choose and order table columns](/images/contents-column-selector.png)
 
 ## Create Contents
 
@@ -86,7 +86,7 @@ The **Links** block contains the composed links you defined in the Model setting
 
 The **Code** block contains a tabbed view of code snippets in popular programming languages to get the content from the API.
 
-![Edit content placeholder](/images/placeholder.svg)
+![Edit page with Content Information panel showing status and publish/unpublish](/images/contents-infopanel.png)
 
 ## Single Content
 
@@ -111,5 +111,3 @@ As soon as you create new contents, Atlas puts them in the unpublished stage, an
 If the content is not Localizable or it is available in only 1 locale, Atlas displays the publish button and the unpublish button depending on the current stage of the content.
 
 If the content is available in more than 1 language, Atlas displays only the publish button that opens a popup that allows you to select which locales should be published or unpublished.
-
-![Publish popup placeholder](/images/placeholder.svg)

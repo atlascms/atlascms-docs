@@ -5,7 +5,11 @@ description: API Reference - Roles
 
 # Roles
 
-## Get User Roles
+APIs for defining user roles and permissions. Control what each role can access in the project.
+
+## Get User Roles <span class="http-badge http-badge-get">GET</span>
+
+Lists all user roles defined in the project.
 
 ```
 GET /{project}/users/roles
@@ -41,9 +45,9 @@ curl -X GET "https://my-project.atlascms.io/{project}/users/roles" \
   -H "Accept: application/json"
 ```
 
----
+## Create User Role <span class="http-badge http-badge-post">POST</span>
 
-## Create User Role
+Creates a new role with configurable permissions.
 
 ```
 POST /{project}/users/roles
@@ -84,9 +88,9 @@ curl -X POST "https://my-project.atlascms.io/{project}/users/roles" \
   -d '{"name":"string","permissions":["string"]}'
 ```
 
----
+## Update User Role <span class="http-badge http-badge-put">PUT</span>
 
-## Update User Role
+Updates an existing role's permissions.
 
 ```
 PUT /{project}/users/roles/{id}
@@ -120,9 +124,9 @@ curl -X PUT "https://my-project.atlascms.io/{project}/users/roles/item-id" \
   -d '{"name":"string","permissions":["string"]}'
 ```
 
----
+## Delete User Role <span class="http-badge http-badge-delete">DELETE</span>
 
-## Delete User Role
+Deletes a role. Users with this role must be reassigned.
 
 ```
 DELETE /{project}/users/roles/{id}
@@ -144,9 +148,9 @@ curl -X DELETE "https://my-project.atlascms.io/{project}/users/roles/item-id" \
   -H "Accept: application/json"
 ```
 
----
+## User Permission Set <span class="http-badge http-badge-get">GET</span>
 
-## User Permission Set
+Returns the list of available permissions for assigning to roles.
 
 ```
 GET /{project}/users/roles/permissions
@@ -185,6 +189,4 @@ curl -X GET "https://my-project.atlascms.io/{project}/users/roles/permissions" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
 ```
-
----
 

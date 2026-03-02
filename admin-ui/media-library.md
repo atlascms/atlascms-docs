@@ -11,7 +11,7 @@ The Media Library provides a centralized location to:
 - Reference media in content through Media and Media Gallery fields
 - Manage folders for organizing your assets
 
-![Media Library placeholder](/images/placeholder.svg)
+![Media Library overview with folders and asset grid](/images/medialibrary-overview.png)
 
 ## Features
 
