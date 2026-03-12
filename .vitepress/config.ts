@@ -50,6 +50,7 @@ export default defineConfig({
           { text: 'Contents', link: '/api-overview/contents' },
           { text: 'Filtering Contents', link: '/api-overview/filtering-contents' },
           { text: 'Media Library', link: '/api-overview/media-library' },
+          { text: 'GraphQL', link: '/api-overview/graphql' },
         ]
       },
       {
